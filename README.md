@@ -1,41 +1,59 @@
 # Network-Upgrade
-Upgrading my home network with pfSense, network segmentation (VLANS), and Ubiquiti hardware for improved security and performance.
+Welcome to my first documented cybersecurity home lab project.
+This repo is part of my ongoing journey as a cybersecurity analyst, and I’m sharing it both to document my experience and to help others looking to improve their own home networks. In this project, I’m replacing a standard commercial router with a dedicated firewall/router powered by pfSense. This gives me more visibility and control over how my network is structured and secured.
 
-Goals
-- Replace consumer-grade router with pfSense firewall
-- Implement VLAN-based network segmentation
-- Isolate IoT and guest devices from core network
-- Improve visibility, control, and security
+Below you’ll find the project’s goals, the hardware I used, a basic network design, current status, and future enhancements I plan to implement in the next phase.
 
-Hardware
-- Firewall: Protectli FW6D running pfSense
-- Switch: Ubiquiti Switch Lite 16 PoE (managed)
-- Wi-Fi: Ubiquiti U6 PRO Dual-Band Wi-Fi 6 AP
+🛠️ Project Goals
+- Replace commercial all-in-one router with a dedicated firewall/router using pfSense on a Protectli FW6D.
 
-Network Design
-- Main LAN: Trusted devices (PCs, NAS, etc.)
-- Guest VLAN: Segmented access for visitors
-- IoT VLAN: Isolated for smart devices
-- Management VLAN (optional): Admin access to infrastructure
+- Implement proper network segmentation using VLANs to isolate guest and IoT traffic from the main network.
 
-Status
+- Improve overall visibility and control of network traffic for learning and security purposes.
 
-🛠️ Hardware setup – not complete
+- Lay the foundation for a future cybersecurity lab environment.
 
-⚙️ pfSense installation and configuration – not complete
+🔧 Hardware Used
+- Protectli Vault FW6D (8 GB ram / 240 GB SSD) – Running pfSense CE
 
-🔧 VLAN setup and testing – not complete
+- Ubiquiti UniFi Switch Lite 16 PoE – Managed switch with VLAN support
 
-📋 Documentation and diagrams – coming soon
+- Ubiquiti UniFi U6 Pro – Dual-band Wi-Fi 6 access point
 
-Future Enhancements
-- Security Onion Deployment: Set up a dedicated server with Security Onion for network monitoring, intrusion detection, and security event analysis.
-- Cybersecurity Testing VMs: Host various VMs for testing and analysis (e.g., Kali Linux, Metasploit, etc.) for hands-on penetration testing, attack simulations, and defense strategies.
-- IDS/IPS Integration: Implement network-based intrusion detection systems (IDS) or intrusion prevention systems (IPS) for real-time monitoring and threat mitigation.
-- Logging & Monitoring: Integrate ELK stack or a similar tool to aggregate logs from various devices and services for deeper analysis.
-- VPN Access: Configure a VPN server for secure remote access to your home network and lab environment.
+- (Optional future) Custom-built server – Will host Security Onion and various VMs for testing
 
+🗺️ Basic Network Design
+- pfSense handles DHCP, VLANs, and acts as the main gateway/firewall
 
-Author: Paul Corrao
+- VLAN A – Main/Trusted network
 
-Contact: https://www.linkedin.com/in/paul-corrao/
+- VLAN B – Guest network
+
+- VLAN C- IoT devices
+
+- UniFi U6 Pro broadcasts separate SSIDs for the Guest, Main, and IoT networks. 
+
+- UniFi switch enforces VLAN separation between wired devices
+
+📊 Project Status
+🔲 Hardware acquisition
+
+🔲 pfSense installed
+
+🔲 VLANs configured
+
+🔲 UniFi switch and AP setup
+
+🔲 Basic segmentation testing
+
+✅ Documentation in progress (this repo)
+
+🔮 Future Enhancements
+- Deploy a home server with Security Onion to monitor and analyze network traffic
+
+- Add virtual machines for hands-on attack simulation and defensive analysis
+
+- Automate log collection and alerting for security events
+
+- Explore integration with tools like Zeek, Suricata, and ELK stack
+
